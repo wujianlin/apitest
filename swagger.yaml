@@ -1,0 +1,40 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: ApplicationTitle
+  description: GroupDesc
+schemes:
+  - https
+host: 'localhost.com'
+basePath: /rest
+tags:
+  - name: Demo
+paths:
+  /v1/demos/{demoId}:
+    get:
+      tags:
+        - Demo
+      operationId: getDemoInfo
+      description: Get Demo Information
+      produces:
+        - application/json
+      parameters:
+        - name: demoId
+          in: path
+          description: ID of Demo
+          required: true
+          type: string
+      responses:
+        200:
+          description: Demo Information
+          schema:
+            "$ref": "#/definitions/DemoInfo"
+definitions:
+  DemoInfo:
+    properties:
+      id:
+        type: string
+        description: Unique identification
+      name:
+        type: string
+        description: name
